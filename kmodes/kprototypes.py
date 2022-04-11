@@ -200,7 +200,7 @@ class KPrototypes(kmodes.KModes):
         X = pandas_to_numpy(X)
         Xnum, Xcat = _split_num_cat(X, categorical)
         Xnum, Xcat = check_array(Xnum), check_array(Xcat, dtype=None)
-        Xcat, _ = encode_features(Xcat, enc_map=self._enc_map)
+        #Xcat, _ = encode_features(Xcat, enc_map=self._enc_map)
         return labels_cost(Xnum, Xcat, self._enc_cluster_centroids,
                            self.num_dissim, self.cat_dissim, self.gamma)[0]
 
@@ -273,8 +273,8 @@ def k_prototypes(X, categorical, n_clusters, max_iter, num_dissim, cat_dissim,
 
     # Convert the categorical values in Xcat to integers for speed.
     # Based on the unique values in Xcat, we can make a mapping to achieve this.
-    Xcat, enc_map = encode_features(Xcat)
-
+    #Xcat, enc_map = encode_features(Xcat)
+    enc_map=None
     # Are there more n_clusters than unique rows? Then set the unique
     # rows as initial values and skip iteration.
     unique = get_unique_rows(X)
@@ -284,7 +284,7 @@ def k_prototypes(X, categorical, n_clusters, max_iter, num_dissim, cat_dissim,
         n_init = 1
         n_clusters = n_unique
         init = list(_split_num_cat(unique, categorical))
-        init[1], _ = encode_features(init[1], enc_map)
+        #init[1], _ = encode_features(init[1], enc_map)
 
     # Estimate a good value for gamma, which determines the weighing of
     # categorical values in clusters (see Huang [1997]).
