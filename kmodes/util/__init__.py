@@ -32,6 +32,8 @@ def encode_features(X, enc_map=None):
     Unknown values during prediction get a value of -1. np.NaNs are ignored
     during encoding, and get treated as unknowns during prediction.
     """
+    print("caution encoding called")
+    return X,None
     if enc_map is None:
         fit = True
         # We will calculate enc_map, so initialize the list of column mappings.
@@ -55,6 +57,7 @@ def decode_centroids(encoded, mapping):
     """Decodes the encoded centroids array back to the original data
     labels using a list of mappings.
     """
+    return encoded
     decoded = []
     for ii in range(encoded.shape[1]):
         # Invert the mapping so that we can decode.
