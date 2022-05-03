@@ -14,9 +14,9 @@ setup(
         '*.tests.*',
     ]),
     version=VERSION,
-    url='https://github.com/nicodv/kmodes',
-    author='Nelis J de Vos',
-    author_email='njdevos@gmail.com',
+    url='https://github.com/drumilT/kmodes',
+    author='Drumil Trivedi',
+    author_email='drumiltrivedi@gmail.com',
     license='MIT',
     description='Python implementations of the k-modes and k-prototypes '
                 'clustering algorithms for clustering categorical data.',
